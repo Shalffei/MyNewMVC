@@ -1,0 +1,28 @@
+﻿@using MyNewMVC.Models;
+
+@model ProductForView;
+<Html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        @{
+            string url = $"/Images/{Model.IdRozetka}.png";
+        }
+        body {
+            background-image: url("@url");
+        }
+    </style>
+    <title>Відеокарти</title>
+</head>
+<body>
+    ID: @Model.IdRozetka
+    Model:@Model.Name
+    Price:@Model.Price
+    <table border="1">
+        @foreach(var item in Model.CharacteristicsList)
+        {
+            <tr><td>@item.CharacteristicsName</td><td>@item.CharacteristicsDescription</td></tr>
+        }
+    </table>
+</body>
+</Html>

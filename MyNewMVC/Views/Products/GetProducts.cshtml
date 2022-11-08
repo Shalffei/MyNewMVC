@@ -1,0 +1,33 @@
+﻿@using MyNewMVC.Models;
+
+@model ModelProductForView;
+<Html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body{
+            background-image: url("/Images/AMD_Radeon_RX_Nvidia_GeForce_RTX_drdNBC.jpg");
+        }
+        
+    </style>
+    <title>Відеокарти</title>
+</head>
+<body>
+    <table>
+        @foreach(var item in Model.Products)
+        {
+            <tr><td>ID:</td><td>@item.IdRozetka</td></tr>
+            <tr><td>Model:</td><td><a href="https://localhost:7259/GetDescriptions?id=@item.IdRozetka">@item.Name</a></td></tr>
+            <tr><td>Price:</td><td>@item.Price</td></tr>
+        }
+    </table>
+    <a href="https://localhost:7259/GetProducts?page=1">FirstPage</a>
+    <a href="https://localhost:7259/GetProducts?page=@Model.PageMinus2">@Model.PageMinus2</a>
+    <a href="https://localhost:7259/GetProducts?page=@Model.PageMinus1">@Model.PageMinus1</a>
+    <a href="https://localhost:7259/GetProducts?page=@Model.Page">@Model.Page</a>
+    <a href="https://localhost:7259/GetProducts?page=@Model.PagePlus1">@Model.PagePlus1</a>
+    <a href="https://localhost:7259/GetProducts?page=@Model.PagePlus2">@Model.PagePlus2</a>
+    <a href="https://localhost:7259/GetProducts?page=@Model.TotalPages">LastPage</a>
+</body>
+</Html>
+
